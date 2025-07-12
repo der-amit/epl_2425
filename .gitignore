@@ -1,0 +1,9 @@
+#ignore raw
+data/player_gca_2025_raw*.csv
+data/player_defense_2025_raw*.csv
+data/player_misc_2025_raw*.csv
+data/player_passing_2025_raw*.csv
+data/player_passing_types_2025_raw*.csv
+data/player_playingtime_2025_raw*.csv
+data/player_possession_2025_raw*.csv
+data/player_shooting_2025_raw*.csv
