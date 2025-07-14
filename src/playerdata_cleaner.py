@@ -42,6 +42,10 @@ poss_col = [
     'Carries', 'TotDist', 'PrgDist', 'PrgC', 'Carry1/3', 'Carry_PA', 'Mis', 'Dis', 'Pass_Rec', 'Pass_PrgR', 'Matches'
 ]
 
+shooting_col = ['Player','Nation',	'Pos', 'Squad', 'Age','Born', '90s',
+                'Goals','Shots','SoT','SoT%','Sh/90','SoT/90','G/Sh','G/SoT','Dist','FK','PK','PKatt', 
+                'xG','npxG','npxG/Sh','G-xG','np:G-xG','Matches']
+
 #
 gca_playerdata_2025 = player_data_clean('/Users/amitmishra/epl_2425/data/player_gca_2025_raw.csv', gca_cols, 
                                         'data/player_gca_2025_cleaned.csv')
@@ -52,4 +56,8 @@ defense_playerdata_2025 = player_data_clean('data/player_defense_2025_raw.csv', 
 poss_player_data_2025 = player_data_clean('data/player_possession_2025_raw.csv', poss_col, 
                                            'data/player_possession_2025_cleaned.csv')
 
-pass_player_data_2025 = player_data_clean('data/player_passing_2025_raw.csv', pass_col, 'data/player_pass_2025_cleaned.csv')
+pass_player_data_2025 = player_data_clean('data/player_passing_2025_raw.csv', pass_col, 
+                                          'data/player_pass_2025_cleaned.csv')
+
+shot_player_data_2025 = player_data_clean('data/player_shooting_2025_raw.csv', shooting_col, 
+                                          'data/player_shot_2025_cleaned.csv')
