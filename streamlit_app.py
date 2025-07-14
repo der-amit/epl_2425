@@ -17,34 +17,44 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS for clean styling
+# Custom CSS for dark theme
 st.markdown("""
 <style>
+    .stApp {
+        background-color: #000000;
+        color: #ffffff;
+    }
     .main-header {
         font-size: 2.5rem;
         font-weight: bold;
-        color: #1f77b4;
+        color: #ffffff;
         text-align: center;
         margin-bottom: 2rem;
+        background-color: #1a1a1a;
+        padding: 1rem;
+        border-radius: 0.5rem;
     }
     .metric-container {
-        background-color: #f0f2f6;
+        background-color: #1a1a1a;
         padding: 1rem;
         border-radius: 0.5rem;
         margin: 0.5rem 0;
+        border: 1px solid #333;
     }
-    .position-badge {
-        padding: 0.25rem 0.5rem;
-        border-radius: 0.25rem;
-        font-weight: bold;
-        color: white;
-    }
-    .goalkeeper { background-color: #ffd700; color: black; }
-    .defender { background-color: #4caf50; }
-    .midfielder { background-color: #2196f3; }
-    .forward { background-color: #ff5722; }
     .stDataFrame {
-        width: 100%;
+        background-color: #1a1a1a;
+    }
+    div[data-testid="stSidebar"] > div {
+        background-color: #1a1a1a;
+    }
+    .stSelectbox label, .stSlider label, .stCheckbox label {
+        color: #ffffff !important;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        color: #ffffff !important;
+    }
+    .stMarkdown {
+        color: #ffffff;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -389,15 +399,26 @@ if df is not None:
                                 radialaxis=dict(
                                     visible=True,
                                     range=[0, 100],
-                                    gridcolor='lightgray'
+                                    gridcolor='#444444',
+                                    tickfont=dict(color='white', size=10)
                                 ),
-                                bgcolor='white'
+                                bgcolor='#000000',
+                                angularaxis=dict(
+                                    tickfont=dict(color='white', size=10),
+                                    gridcolor='#444444'
+                                )
                             ),
                             showlegend=True,
-                            title="Player Comparison (Normalized %)",
-                            font=dict(size=12),
-                            paper_bgcolor='white',
-                            plot_bgcolor='white'
+                            title=dict(
+                                text="Player Comparison (Normalized %)",
+                                font=dict(color='white', size=16)
+                            ),
+                            legend=dict(
+                                font=dict(color='white')
+                            ),
+                            font=dict(size=12, color='white'),
+                            paper_bgcolor='#000000',
+                            plot_bgcolor='#000000'
                         )
                         
                         st.plotly_chart(fig, use_container_width=True)
@@ -411,12 +432,29 @@ if df is not None:
                         orientation='h',
                         color='Similarity',
                         color_continuous_scale='viridis',
-                        title="Top 10 Most Similar Players"
+                        title="Top 10 Most Similar Players",
+                        labels={'Similarity': 'Similarity Score', 'Player': 'Player Name'}
                     )
                     fig_bar.update_layout(
                         height=400,
-                        paper_bgcolor='white',
-                        plot_bgcolor='white'
+                        paper_bgcolor='#000000',
+                        plot_bgcolor='#000000',
+                        font=dict(color='white'),
+                        title=dict(
+                            font=dict(color='white', size=16)
+                        ),
+                        xaxis=dict(
+                            gridcolor='#444444',
+                            tickfont=dict(color='white')
+                        ),
+                        yaxis=dict(
+                            gridcolor='#444444',
+                            tickfont=dict(color='white')
+                        ),
+                        coloraxis_colorbar=dict(
+                            tickfont=dict(color='white'),
+                            title=dict(font=dict(color='white'))
+                        )
                     )
                     st.plotly_chart(fig_bar, use_container_width=True)
                     
@@ -447,11 +485,29 @@ if df is not None:
                                 color='Player_Type',
                                 hover_data=['Player', 'Squad'],
                                 title="Goals vs Expected Goals (npxG)",
-                                color_discrete_map={'Target': '#ff5722', 'Similar': '#2196f3'}
+                                color_discrete_map={'Target': '#ff5722', 'Similar': '#2196f3'},
+                                labels={'npxG': 'Non-Penalty Expected Goals', 'Goals': 'Actual Goals'}
                             )
                             fig_scatter.update_layout(
-                                paper_bgcolor='white',
-                                plot_bgcolor='white'
+                                paper_bgcolor='#000000',
+                                plot_bgcolor='#000000',
+                                font=dict(color='white'),
+                                title=dict(
+                                    font=dict(color='white', size=16)
+                                ),
+                                xaxis=dict(
+                                    gridcolor='#444444',
+                                    tickfont=dict(color='white'),
+                                    title=dict(font=dict(color='white'))
+                                ),
+                                yaxis=dict(
+                                    gridcolor='#444444',
+                                    tickfont=dict(color='white'),
+                                    title=dict(font=dict(color='white'))
+                                ),
+                                legend=dict(
+                                    font=dict(color='white')
+                                )
                             )
                             st.plotly_chart(fig_scatter, use_container_width=True)
     
