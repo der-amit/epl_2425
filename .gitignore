@@ -7,3 +7,9 @@ data/player_passing_types_2025_raw*.csv
 data/player_playingtime_2025_raw*.csv
 data/player_possession_2025_raw*.csv
 data/player_shooting_2025_raw*.csv
+team_data/EPL_2425_stats_squads_defense_for*.csv
+team_data/EPL_2425_stats_squads_gca_for*.csv
+team_data/EPL_2425_stats_squads_passing_for*.csv
+team_data/EPL_2425_stats_squads_possession_for*.csv
+team_data/EPL_2425_stats_squads_shooting_for*.csv
+team_data/EPL_2425_stats_squads_standard_for*.csv
