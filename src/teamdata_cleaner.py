@@ -51,6 +51,13 @@ poss_col = [
     'Carries', 'TotDist', 'PrgDist', 'PrgC', 'Carry1/3', 'Carry_PA', 'Mis', 'Dis', 'Pass_Rec', 'Pass_PrgR'
 ]
 
+vs_poss_col = [
+    'Squad', 'Players_used', 'Poss', '90s', 
+    'Touches', 'Touches_DefPen', 'Touches_Def3rd', 'Touches_Mid3rd', 'Touches_Att3rd', 'Touches_AttPen', 'Touches_Live', 
+    'TO_Att', 'TO_Succ', 'TO_Succ%', 'TO_Tkld', 'TO_Tkld%', 
+    'Carries', 'TotDist', 'PrgDist', 'PrgC', 'Carry1/3', 'Carry_PA', 'Mis', 'Dis', 'Pass_Rec', 'Pass_PrgR'
+]
+
 
 epl_defense_24 = clean_table('/Users/amitmishra/epl_2425/team_data/EPL_2425_stats_squads_defense_for.csv', def_cols, 'team_data/epl2425_defense_cleaned.csv')
 
@@ -65,3 +72,6 @@ epl_passing_24 = clean_table('/Users/amitmishra/epl_2425/team_data/EPL_2425_stat
 
 epl_poss_24 = clean_table('/Users/amitmishra/epl_2425/team_data/EPL_2425_stats_squads_possession_for.csv', poss_col,
                           'team_data/epl2425_possession_cleaned.csv')
+
+epl_vsposs_24 = clean_table('/Users/amitmishra/epl_2425/team_data/EPL_2425_stats_squads_possession_against.csv', vs_poss_col,
+                          'team_data/epl2425_vspossession_cleaned.csv')

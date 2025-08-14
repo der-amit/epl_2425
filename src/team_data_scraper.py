@@ -1,4 +1,3 @@
-
 import pandas as pd
 
 def fetch_fbref_table(url, feature):
@@ -25,16 +24,21 @@ def scrape_multiple_tables(url, table_ids, output_prefix = 'fbref'):
     return results
 
 if __name__ == "__main__":
-    url = 'https://fbref.com/en/comps/9/Premier-League-Stats'
+    url = 'https://fbref.com/en/comps/9/2024-2025/2024-2025-Premier-League-Stats'
     tables_to_scrape = ['stats_squads_defense_for',
                  'stats_squads_gca_for',
                  'stats_squads_shooting_for',
                  'stats_squads_passing_for',
                  'stats_squads_possession_for',
-                 'stats_squads_standard_for']
+                 'stats_squads_standard_for',
+                 'stats_squads_defense_against',
+                 'stats_squads_gca_against',
+                 'stats_squads_shooting_against',
+                 'stats_squads_passing_against',
+                 'stats_squads_possession_against',
+                 'stats_squads_standard_against']
     results = scrape_multiple_tables(url, tables_to_scrape, output_prefix="EPL_2425")
     
     print("\nScraping Results:")
     for table_id, status in results.items():
         print(f"  {table_id}: {status}")
-        
